@@ -15,4 +15,5 @@ redis_module! {
   name: "rns",
   version: 1,
   data_types: [],
+  commands: []
 }
