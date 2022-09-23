@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate redis_module;
 
-use redis_module::{Context, RedisResult, RedisString};
+use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 // === Module Commands ===
 
