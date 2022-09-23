@@ -14,4 +14,5 @@ fn ns_info(_: &Context, _: Vec<RedisString>) -> RedisResult {
 redis_module! {
   name: "rns",
   version: 1,
+  data_types: [],
 }
