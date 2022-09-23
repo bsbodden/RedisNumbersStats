@@ -5,7 +5,7 @@ use redis_module::{Context, RedisResult, RedisString};
 
 // === Module Commands ===
 
-fn ns_info(_: &Context, _: Vec<RedisString>) -> RedisResult {
+fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
     return Ok("Hello".into());
 }
 
