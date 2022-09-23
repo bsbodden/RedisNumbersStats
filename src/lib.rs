@@ -11,4 +11,6 @@ fn ns_info(_: &Context, _: Vec<RedisString>) -> RedisResult {
 
 // === Module Declaration ===
 
-redis_module! {}
+redis_module! {
+  name: "rns",
+}
