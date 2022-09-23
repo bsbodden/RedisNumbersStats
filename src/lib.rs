@@ -8,3 +8,7 @@ use redis_module::{Context, RedisResult, RedisString};
 fn ns_info(_: &Context, _: Vec<RedisString>) -> RedisResult {
     return Ok("Hello".into());
 }
+
+// === Module Declaration ===
+
+redis_module! {}
