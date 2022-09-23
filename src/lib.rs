@@ -15,5 +15,7 @@ redis_module! {
   name: "rns",
   version: 1,
   data_types: [],
-  commands: []
+  commands: [
+    ["ns.info", ns_info, "readonly", 0, 0, 0],
+  ]
 }
