@@ -9,6 +9,7 @@ fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
     let args = args.into_iter().skip(1);
     let name = args.into_iter().next_string()?;
     let greet = format!("Hello {}!", name);
+    return Ok(greet.into());
 }
 
 // === Module Declaration ===
