@@ -6,6 +6,7 @@ use redis_module::{Context, RedisResult, RedisString};
 // === Module Commands ===
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
+    let args = args.into_iter().skip(1);
     return Ok("Hello".into());
 }
 
