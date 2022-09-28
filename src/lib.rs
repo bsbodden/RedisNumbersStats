@@ -35,7 +35,7 @@ pub static REDIS_TYPE: RedisType = RedisType::new(
     REDIS_TYPE_VERSION,
     RedisModuleTypeMethods {
         version: redis_module::TYPE_METHOD_VERSION,
-        rdb_load: None,
+        rdb_load: Some(rdb_load),
         rdb_save: None,
         aof_rewrite: None,
         free: Some(free),
