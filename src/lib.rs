@@ -108,6 +108,8 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     }
 }
 
+fn ns_accept(ctx: &Context, args: Vec<RedisString>) -> RedisResult {}
+
 // === Module Declaration ===
 
 redis_module! {
