@@ -13,6 +13,22 @@ pub const REDIS_TYPE_VERSION: i32 = 1;
 pub static REDIS_TYPE: RedisType = RedisType::new(
     REDIS_TYPE_NAME,
     REDIS_TYPE_VERSION,
+    RedisModuleTypeMethods {
+        version: redis_module::TYPE_METHOD_VERSION,
+        rdb_load: None,
+        rdb_save: None,
+        aof_rewrite: None,
+        free: None,
+        mem_usage: None,
+        digest: None,
+        aux_load: None,
+        aux_save: None,
+        aux_save_triggers: 0,
+        free_effort: None,
+        unlink: None,
+        copy: None,
+        defrag: None,
+    },
 );
 
 // === Data Types ===
