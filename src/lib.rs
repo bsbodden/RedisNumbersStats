@@ -117,6 +117,7 @@ fn ns_accept(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
 
     if let Some(ss) = redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE)? {
         let value = value_arg.to_string().parse::<f64>().unwrap();
+        ss.accept(value);
     }
 }
 
