@@ -2,8 +2,8 @@
 extern crate redis_module;
 
 use redis_module::native_types::RedisType;
-use redis_module::{Context, NextArg, RedisResult, RedisString};
 use redis_module::raw::RedisModuleTypeMethods;
+use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 // === Data Type Declaration ===
 
@@ -58,6 +58,7 @@ fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let args = args.into_iter().skip(1);
     let key_arg = args.into_iter().next_string()?;
     let key = RedisString::create(ctx.ctx, &key_arg.to_string());
+    let redis_key = ctx.open_key_writable(&key);
 }
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
