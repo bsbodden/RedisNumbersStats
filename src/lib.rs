@@ -7,7 +7,7 @@ use redis_module::raw::RedisModuleTypeMethods;
 use redis_module::{Context, NextArg, RedisResult, RedisString, RedisValue};
 use serde::{Deserialize, Serialize};
 use std::os::raw::{c_int, c_void};
-use std::ptr::null_mut;
+use std::{ffi::CString, ptr::null_mut};
 
 // === RDB Persistence ===
 
@@ -23,6 +23,15 @@ extern "C" fn rdb_load(rdb: *mut raw::RedisModuleIO, _encver: c_int) -> *mut c_v
     } else {
         return null_mut();
     }
+}
+
+unsafe extern "C" fn rdb_save(rdb: *mut raw::RedisModuleIO, value: *mut c_void) {
+    let mut out = serde_json::Serializer::new(Vec::new());
+    let fsm = &*value.cast::<SummaryStatistics>();
+    fsm.serialize(&mut out).unwrap();
+    let json = String::from_utf8(out.into_inner()).unwrap();
+    let cjson = CString::new(json).unwrap();
+    raw::save_string(rdb, cjson.to_str().unwrap());
 }
 
 // === Data Type Declaration ===
