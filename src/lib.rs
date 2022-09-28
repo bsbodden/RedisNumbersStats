@@ -90,6 +90,8 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
             } else {
                 res.push(RedisValue::Float(ss.max))
             }
+            res.push(RedisValue::SimpleStringStatic("Sum"));
+            res.push(RedisValue::Float(ss.sum));
         }
     }
 }
