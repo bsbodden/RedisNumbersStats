@@ -119,6 +119,8 @@ fn ns_accept(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
         let value = value_arg.to_string().parse::<f64>().unwrap();
         ss.accept(value);
         Ok(RedisValue::Integer(true as i64))
+    } else {
+        Ok(RedisValue::Integer(false as i64))
     }
 }
 
