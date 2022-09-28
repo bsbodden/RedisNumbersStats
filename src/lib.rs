@@ -58,7 +58,7 @@ impl SummaryStatistics {
         self.min = self.min.min(value);
         self.max = self.max.max(value);
         self.sum += value;
-        0
+        self.count
     }
 }
 
