@@ -57,6 +57,7 @@ impl Default for SummaryStatistics {
 fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let args = args.into_iter().skip(1);
     let key_arg = args.into_iter().next_string()?;
+    let key = RedisString::create(ctx.ctx, &key_arg.to_string());
 }
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
