@@ -2,15 +2,27 @@
 extern crate redis_module;
 
 use redis_module::native_types::RedisType;
+use redis_module::raw;
 use redis_module::raw::RedisModuleTypeMethods;
 use redis_module::{Context, NextArg, RedisResult, RedisString, RedisValue};
 use serde::{Deserialize, Serialize};
-use std::os::raw::c_void;
+use std::os::raw::{c_int, c_void};
+use std::ptr::null_mut;
 
 // === RDB Persistence ===
 
 unsafe extern "C" fn free(value: *mut c_void) {
     Box::from_raw(value.cast::<SummaryStatistics>());
+}
+
+extern "C" fn rdb_load(rdb: *mut raw::RedisModuleIO, _encver: c_int) -> *mut c_void {
+    if let Ok(data) = raw::load_string(rdb) {
+        let json_string = data.to_string();
+        let fsm: SummaryStatistics = serde_json::from_str(&json_string.to_string()).unwrap();
+        return Box::into_raw(Box::new(fsm)).cast::<c_void>();
+    } else {
+        return null_mut();
+    }
 }
 
 // === Data Type Declaration ===
