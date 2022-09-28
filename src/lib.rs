@@ -218,5 +218,6 @@ redis_module! {
     ["ns.create", ns_create, "write", 1, 1, 1],
     ["ns.accept", ns_accept, "write", 1, 1, 1],
     ["ns.average", ns_average, "readonly", 1, 1, 1],
+    ["ns.merge", ns_merge, "write", 1, 1, 1],
   ]
 }
