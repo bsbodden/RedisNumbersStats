@@ -183,6 +183,28 @@ fn ns_average(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     }
 }
 
+fn ns_merge(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
+    let mut args = args.into_iter().skip(1);
+    let target_key_arg = args.next_arg()?;
+    let target_key = RedisString::create(ctx.ctx, &target_key_arg.to_string());
+    let num_sources = args.len() as i64;
+
+    let mut target = SummaryStatistics::default();
+    for src_target_key_arg in args {
+        let src_key = RedisString::create(ctx.ctx, &src_target_key_arg.to_string());
+        let redis_src_key = ctx.open_key(&src_key);
+        if let Some(source) = redis_src_key.get_value::<SummaryStatistics>(&REDIS_TYPE)? {
+            target.merge(source);
+        }
+    }
+
+    let redis_target_key = ctx.open_key_writable(&target_key);
+    match redis_target_key.set_value(&REDIS_TYPE, target) {
+        Ok(_) => Ok(RedisValue::Integer(num_sources)),
+        Err(_) => Ok(RedisValue::Null),
+    }
+}
+
 // === Module Declaration ===
 
 redis_module! {
