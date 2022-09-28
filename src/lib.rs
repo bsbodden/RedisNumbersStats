@@ -72,6 +72,9 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let key_arg = args.into_iter().next_string()?;
     let key = RedisString::create(ctx.ctx, &key_arg.to_string());
     let redis_key = ctx.open_key(&key);
+
+    match redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE) {
+    }
 }
 
 // === Module Declaration ===
