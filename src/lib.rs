@@ -94,6 +94,7 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
             res.push(RedisValue::Float(ss.sum));
             Ok(RedisValue::Array(res))
         }
+        Ok(None) | Err(_) => Ok(RedisValue::Null),
     }
 }
 
