@@ -52,6 +52,8 @@ impl Default for SummaryStatistics {
     }
 }
 
+impl SummaryStatistics {}
+
 // === Module Commands ===
 
 fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
