@@ -3,7 +3,7 @@ extern crate redis_module;
 
 use redis_module::native_types::RedisType;
 use redis_module::raw::RedisModuleTypeMethods;
-use redis_module::{Context, NextArg, RedisResult, RedisString};
+use redis_module::{Context, NextArg, RedisResult, RedisString, RedisValue};
 
 // === Data Type Declaration ===
 
