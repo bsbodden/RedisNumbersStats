@@ -6,6 +6,7 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 // === Data Types ===
 
 struct SummaryStatistics {
+    count: i64,
 }
 
 // === Module Commands ===
