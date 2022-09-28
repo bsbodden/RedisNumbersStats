@@ -3,6 +3,8 @@ extern crate redis_module;
 
 use redis_module::{Context, NextArg, RedisResult, RedisString};
 
+// === Data Types ===
+
 // === Module Commands ===
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
