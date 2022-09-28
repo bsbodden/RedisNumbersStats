@@ -11,6 +11,7 @@ pub const REDIS_TYPE_VERSION: i32 = 1;
 
 pub static REDIS_TYPE: RedisType = RedisType::new(
     REDIS_TYPE_NAME,
+    REDIS_TYPE_VERSION,
 );
 
 // === Data Types ===
