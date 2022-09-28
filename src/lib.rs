@@ -59,6 +59,7 @@ fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let key_arg = args.into_iter().next_string()?;
     let key = RedisString::create(ctx.ctx, &key_arg.to_string());
     let redis_key = ctx.open_key_writable(&key);
+    let ss = SummaryStatistics::default();
 }
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
