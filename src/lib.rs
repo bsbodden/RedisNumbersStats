@@ -7,6 +7,7 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 struct SummaryStatistics {
     count: i64,
+    min: f64,
 }
 
 // === Module Commands ===
