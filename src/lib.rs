@@ -5,6 +5,9 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 // === Data Types ===
 
+struct SummaryStatistics {
+}
+
 // === Module Commands ===
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
