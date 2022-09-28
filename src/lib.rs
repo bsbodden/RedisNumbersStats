@@ -19,6 +19,7 @@ impl Default for SummaryStatistics {
             count: 0_i64,
             min: f64::MAX,
             max: f64::MIN,
+            sum: 0.0_f64,
         }
     }
 }
