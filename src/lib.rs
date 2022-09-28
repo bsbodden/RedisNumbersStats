@@ -84,6 +84,12 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
             } else {
                 res.push(RedisValue::Float(ss.min))
             }
+            res.push(RedisValue::SimpleStringStatic("Max"));
+            if ss.max == f64::MIN {
+                res.push(RedisValue::SimpleStringStatic("N/A"))
+            } else {
+                res.push(RedisValue::Float(ss.max))
+            }
         }
     }
 }
