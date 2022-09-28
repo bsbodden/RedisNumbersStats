@@ -9,7 +9,9 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 pub const REDIS_TYPE_NAME: &str = "Redis-NSS";
 pub const REDIS_TYPE_VERSION: i32 = 1;
 
-pub static REDIS_TYPE: RedisType = RedisType::new();
+pub static REDIS_TYPE: RedisType = RedisType::new(
+    REDIS_TYPE_NAME,
+);
 
 // === Data Types ===
 
