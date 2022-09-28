@@ -115,7 +115,9 @@ fn ns_accept(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let key = RedisString::create(ctx.ctx, &key_arg.to_string());
     let redis_key = ctx.open_key_writable(&key);
 
-    if let Some(ss) = redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE)? {}
+    if let Some(ss) = redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE)? {
+        let value = value_arg.to_string().parse::<f64>().unwrap();
+    }
 }
 
 // === Module Declaration ===
