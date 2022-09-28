@@ -60,6 +60,14 @@ impl SummaryStatistics {
         self.sum += value;
         self.count
     }
+
+    fn average(&self) -> f64 {
+        if self.count > 0 {
+            self.sum / (self.count as f64)
+        } else {
+            0.0_f64
+        }
+    }
 }
 
 // === Module Commands ===
