@@ -5,6 +5,7 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 // === Data Types ===
 
+#[derive(Debug, Clone)]
 struct SummaryStatistics {
     count: i64,
     min: f64,
