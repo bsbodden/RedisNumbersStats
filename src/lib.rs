@@ -54,6 +54,7 @@ impl Default for SummaryStatistics {
 
 impl SummaryStatistics {
     fn accept(&mut self, value: f64) -> i64 {
+        self.count += 1;
         0
     }
 }
