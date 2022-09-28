@@ -74,6 +74,8 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     let redis_key = ctx.open_key(&key);
 
     match redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE) {
+        Ok(Some(ss)) => {
+        }
     }
 }
 
