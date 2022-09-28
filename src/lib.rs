@@ -15,7 +15,9 @@ struct SummaryStatistics {
 
 impl Default for SummaryStatistics {
     fn default() -> SummaryStatistics {
-        SummaryStatistics {}
+        SummaryStatistics { 
+            count: 0_i64, 
+        }
     }
 }
 
