@@ -9,6 +9,7 @@ struct SummaryStatistics {
     count: i64,
     min: f64,
     max: f64,
+    sum: f64,
 }
 
 // === Module Commands ===
