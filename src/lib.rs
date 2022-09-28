@@ -41,7 +41,7 @@ pub static REDIS_TYPE: RedisType = RedisType::new(
 
 // === Data Types ===
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 struct SummaryStatistics {
     count: i64,
     min: f64,
