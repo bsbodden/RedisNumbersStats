@@ -13,6 +13,9 @@ struct SummaryStatistics {
     sum: f64,
 }
 
+impl Default for SummaryStatistics {
+}
+
 // === Module Commands ===
 
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
