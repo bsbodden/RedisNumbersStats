@@ -132,6 +132,20 @@ fn ns_accept(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     }
 }
 
+fn ns_average(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
+    let args = args.into_iter().skip(1);
+    let key_arg = args.into_iter().next_string()?;
+    let key = RedisString::create(ctx.ctx, &key_arg.to_string());
+    let redis_key = ctx.open_key_writable(&key);
+
+    if let Some(ss) = redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE)? {
+        let value = ss.average();
+        Ok(RedisValue::Float(value))
+    } else {
+        Ok(RedisValue::Null)
+    }
+}
+
 // === Module Declaration ===
 
 redis_module! {
