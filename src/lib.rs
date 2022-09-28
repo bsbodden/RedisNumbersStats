@@ -78,6 +78,12 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
             let mut res: Vec<RedisValue> = Vec::with_capacity(4 * 2);
             res.push(RedisValue::SimpleStringStatic("Count"));
             res.push(RedisValue::Integer(ss.count));
+            res.push(RedisValue::SimpleStringStatic("Min"));
+            if ss.min == f64::MAX {
+                res.push(RedisValue::SimpleStringStatic("N/A"))
+            } else {
+                res.push(RedisValue::Float(ss.min))
+            }
         }
     }
 }
