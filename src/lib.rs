@@ -63,6 +63,7 @@ fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
 
     match redis_key.set_value(&REDIS_TYPE, ss) {
         Ok(_) => Ok(RedisValue::Integer(true as i64)),
+        Err(_) => Ok(RedisValue::Integer(false as i64)),
     }
 }
 
