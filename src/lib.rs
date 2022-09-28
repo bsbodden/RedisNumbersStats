@@ -52,7 +52,11 @@ impl Default for SummaryStatistics {
     }
 }
 
-impl SummaryStatistics {}
+impl SummaryStatistics {
+    fn accept(&mut self, value: f64) -> i64 {
+        0
+    }
+}
 
 // === Module Commands ===
 
