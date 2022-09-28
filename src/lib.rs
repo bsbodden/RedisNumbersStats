@@ -5,6 +5,8 @@ use redis_module::{Context, NextArg, RedisResult, RedisString};
 
 // === Data Type Declaration ===
 
+pub const REDIS_TYPE_NAME: &str = "Redis-NSS";
+
 // === Data Types ===
 
 #[derive(Debug, Clone)]
