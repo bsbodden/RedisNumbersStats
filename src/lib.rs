@@ -54,6 +54,9 @@ impl Default for SummaryStatistics {
 
 // === Module Commands ===
 
+fn ns_create(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
+}
+
 fn ns_info(_: &Context, args: Vec<RedisString>) -> RedisResult {
     let args = args.into_iter().skip(1);
     let name = args.into_iter().next_string()?;
