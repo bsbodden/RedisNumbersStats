@@ -3,6 +3,8 @@ extern crate redis_module;
 
 use redis_module::{Context, NextArg, RedisResult, RedisString};
 
+// === Data Type Declaration ===
+
 // === Data Types ===
 
 #[derive(Debug, Clone)]
