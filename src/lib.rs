@@ -76,6 +76,8 @@ fn ns_info(ctx: &Context, args: Vec<RedisString>) -> RedisResult {
     match redis_key.get_value::<SummaryStatistics>(&REDIS_TYPE) {
         Ok(Some(ss)) => {
             let mut res: Vec<RedisValue> = Vec::with_capacity(4 * 2);
+            res.push(RedisValue::SimpleStringStatic("Count"));
+            res.push(RedisValue::Integer(ss.count));
         }
     }
 }
