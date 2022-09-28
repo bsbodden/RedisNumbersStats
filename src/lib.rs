@@ -5,6 +5,8 @@ use redis_module::native_types::RedisType;
 use redis_module::raw::RedisModuleTypeMethods;
 use redis_module::{Context, NextArg, RedisResult, RedisString, RedisValue};
 
+// === RDB Persistence ===
+
 // === Data Type Declaration ===
 
 pub const REDIS_TYPE_NAME: &str = "Redis-NSS";
