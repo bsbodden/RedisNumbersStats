@@ -4,6 +4,7 @@ extern crate redis_module;
 use redis_module::native_types::RedisType;
 use redis_module::raw::RedisModuleTypeMethods;
 use redis_module::{Context, NextArg, RedisResult, RedisString, RedisValue};
+use serde::{Deserialize, Serialize};
 use std::os::raw::c_void;
 
 // === RDB Persistence ===
