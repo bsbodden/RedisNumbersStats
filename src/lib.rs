@@ -55,6 +55,8 @@ impl Default for SummaryStatistics {
 impl SummaryStatistics {
     fn accept(&mut self, value: f64) -> i64 {
         self.count += 1;
+        self.min = self.min.min(value);
+        self.max = self.max.max(value);
         0
     }
 }
