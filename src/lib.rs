@@ -158,5 +158,6 @@ redis_module! {
     ["ns.info", ns_info, "readonly", 0, 0, 0],
     ["ns.create", ns_create, "write", 1, 1, 1],
     ["ns.accept", ns_accept, "write", 1, 1, 1],
+    ["ns.average", ns_average, "readonly", 1, 1, 1],
   ]
 }
