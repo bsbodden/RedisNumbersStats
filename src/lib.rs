@@ -97,6 +97,14 @@ impl SummaryStatistics {
             0.0_f64
         }
     }
+
+    fn merge(&mut self, other: &SummaryStatistics) -> i64 {
+        self.count += other.count;
+        self.min = self.min.min(other.min);
+        self.max = self.max.max(other.max);
+        self.sum += other.sum;
+        self.count
+    }
 }
 
 // === Module Commands ===
