@@ -84,5 +84,6 @@ redis_module! {
   ],
   commands: [
     ["ns.info", ns_info, "readonly", 0, 0, 0],
+    ["ns.create", ns_create, "write", 1, 1, 1],
   ]
 }
